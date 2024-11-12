@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ bookname_writer }} - 책 소개</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ bookname_writer }}</h1>
+        <p>{{ book_intro }}</p>
+        <div class="button-container">
+            <a href="{{ url_for('recommend') }}" class="logout-button">추천 도서로 돌아가기</a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/교통대UI.png') }}" alt="Logo Image" class="logo-image">
+    </div>
+</body>
+</html>

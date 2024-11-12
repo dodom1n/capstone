@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>추천 도서</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ username }}님을 위한 추천 도서</h1>
+        <ul class="recommend-list">
+            {% for idx, row in recommendations.iterrows() %}
+                <li>
+                    <a href="{{ url_for('book_details', bookname_writer=row['자료명'] + ' ' + row['저자'] | urlencode) }}" class="book-link">
+                        {{ row['자료명'] }} {{ row['저자'] }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="button-container">
+            <a href="/logout" class="logout-button">로그아웃</a>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/교통대UI.png') }}" alt="Logo Image" class="logo-image">
+    </div>
+</body>
+</html>
